@@ -1,6 +1,6 @@
 package com.personal.Computer;
 
-public class MotherBoard extends Goods{
+public class MotherBoard extends HardWare{
 	
 	String PlatFormName;
 	String SocketName;
@@ -9,29 +9,69 @@ public class MotherBoard extends Goods{
 	int SlatNum;
 	int PortLan;
 	
-	
+	public MotherBoard() {}
 	
 	public MotherBoard(String platFormName, String socketName, String chipSetName) {
-		super();
+		this.PlatFormName = platFormName;
+		this.SocketName = socketName;
+		this.ChipSetName = chipSetName;
+		
+		
+		}
+	
+	
+	
+	public MotherBoard(String platFormName, String socketName, String chipSetName, int graphicSlat, int slatNum,
+			int portLan) {
+		this.PlatFormName = platFormName;
+		this.SocketName = socketName;
+		this.ChipSetName = chipSetName;
+		this.GraphicSlat = graphicSlat;
+		this.SlatNum = slatNum;
+		this.PortLan = portLan;
+	}
+	
+	
+	
+	public MotherBoard(String platFormName, String socketName, String chipSetName,
+			int graphicSlat, int slatNum,int portLan,int ProductionYear, String hardwareName , int price) {
+  
+		
+	    this.PlatFormName = platFormName;
+		this.SocketName = socketName;
+		this.ChipSetName = chipSetName;
+		this.GraphicSlat = graphicSlat;
+		this.SlatNum = slatNum;
+		this.PortLan = portLan;
+	
+		this.ProductionYear = ProductionYear;
+		this.hardwareName = hardwareName;
+		this.Price = price;
+
+	}
+
+	
+	public MotherBoard(String platFormName, String socketName, String chipSetName,
+			int graphicSlat, int slatNum,int portLan,int ProductionYear, String hardwareName, int price, boolean Guarantee, String CountryMade) {
+
+
 		PlatFormName = platFormName;
 		SocketName = socketName;
 		ChipSetName = chipSetName;
+		GraphicSlat = graphicSlat;
+		SlatNum = slatNum;
+		PortLan = portLan;
+		
+		this.ProductionYear = ProductionYear;
+		this.hardwareName = hardwareName;
+		this.Price = price;
+		this.Guarantee = Guarantee;
+		this.CountryMade = CountryMade;
+
 	}
-	public MotherBoard() {
-		super();
-	}
-	CPU cpu=new CPU();
-	Power power= new Power();
-	
-	Ram[] ram ;
-	
-	DVDRom dvdrom=new DVDRom();
-	
-	SoundCard scard=new SoundCard();
-	
-	GraphicCard gcard= new GraphicCard();
-	
-	HardDisk hdisk=new HardDisk();
+
+
+		
 	public String getPlatFormName() {
 		return PlatFormName;
 	}
@@ -70,28 +110,37 @@ public class MotherBoard extends Goods{
 	public void setPortLan(int portLan) {
 		PortLan = portLan;
 	}
-	public CPU getCpu() {
-		return cpu;
-	}
-	public void setCpu(CPU cpu) {
-		this.cpu = cpu;
-	}
-	public Power getPower() {
-		return power;
-	}
-	public void setPower(Power power) {
-		this.power = power;
-	}
-	public Ram[] getRam() {
-		return ram;
-	}
-	public void setRam(Ram[] ram) {
-		this.ram = ram;
+	
+	@Override
+	public void running(boolean onOroff) {
+
+		if (onOroff == true)
+			System.out.println("the Mother Board is working");
+		else
+			System.out.println("the Mother Board is  not working");
+
 	}
 	
-	
-	
-	
-	
+	@Override
+	public String toString() {
+
+		return PlatFormName+ "  " + SocketName + " "+ChipSetName+ " " +	GraphicSlat+ " " +
+		SlatNum+ " " + PortLan + "  " + ProductionYear + " " + hardwareName + " " + Price;
 
 }
+
+	@Override
+	 String connected(boolean conMotherboard) {
+		
+		
+		if (conMotherboard==true)
+		
+		return "the Motherboard is connected to the power";
+		
+		else
+			return "the Motherboard is not connected to the power";
+
+	}
+
+	
+	}
